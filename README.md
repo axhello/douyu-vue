@@ -6,9 +6,11 @@
 
 本项目利用斗鱼提供的[第三方开发平台API](http://dev-bbs.douyutv.com/forum.php?mod=viewthread&tid=113&extra=page%3D1)进行开发，所有文字图片等资源都由 [斗鱼](http://www.douyu.com/) 提供，本项目开源只用于分享、学习用。
 
-## 运行演示
+## 动图演示
 
-![Demo](https://o72gatjmx.qnssl.com/Jul-16-2016%2000-27-12.gif)
+[无法查看请点这里](https://o72gatjmx.qnssl.com/Jul-16-2016-27-12.gif)
+
+![Demo](https://o72gatjmx.qnssl.com/Jul-16-2016-27-12.gif)
 
 ## 在线演示
 

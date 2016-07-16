@@ -14,11 +14,11 @@
   },
   "dependencies": {
     "babel-runtime": "^6.0.0",
-    "lib-flexible": "^0.3.2",
     "vue": "^1.0.21",
     "vue-resource": "^0.7.4",
     "vue-router": "^0.7.13",
-    "vue-swipe": "^0.2.6"
+    "vue-swipe": "^0.2.6",
+    "lib-flexible": "^0.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -65,8 +65,6 @@
     "selenium-server": "2.53.0",
     "ora": "^0.2.0",
     "shelljs": "^0.6.0",
-    "node-sass": "^3.7.0",
-    "sass-loader": "^3.2.0",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
@@ -75,6 +73,8 @@
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
-    "webpack-merge": "^0.8.3"
+    "webpack-merge": "^0.8.3",
+    "node-sass": "^3.6.0",
+    "sass-loader": "^3.2.0"
   }
 }
