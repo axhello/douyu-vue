@@ -1,8 +1,18 @@
 <template>
   <detail-header :icon="'icon-arrow-left'" :title=""></detail-header>
-  <section class="content film-view">
-    <div class="film-img-wrap">
-     <embed width="100%" height="100%" allownetworking="all" allowscriptaccess="always" :src="loadingsrc" quality="high" bgcolor="#000" wmode="window" allowfullscreen="true" allowFullScreenInteractive="true" type="application/x-shockwave-flash">
+  <section class="content video-view">
+    <div class="player">
+        <video id="dy-video-player" class="video-js" type="application/x-mpegURL" :src="room.hls_url">
+            <p>您的浏览器不支持 video 标签</p>
+        </video>
+        <div class="poster" v-show="isPlay">
+            <img :src="room.room_src" id="video-poster">
+            <div class="play-btn" @click="tooglePlay"><i class="icon icon-play2"></i></div>
+            <div class="room-info">
+                <span class="name">{{room.room_name}}</span>
+                <span class="class">{{room.tag_name}}</span>
+            </div>
+        </div>
     </div>  
     <div class="film-intro">
         <div class="film-list-nav">
@@ -22,10 +32,6 @@
         <!-- <now-playing v-if="curTab==='NOW_PLAYING'"></now-playing>
         <coming-soon v-if="curTab==='COMING_SOON'"></coming-soon> -->
     </div>
-    </div>
-    <div class="operation">
-      
-    </div>
     </section>
 </template>
 
@@ -38,6 +44,7 @@ export default{
     data(){
       return{
         room: [],
+        isPlay: true,
         curTab:'NOW_PLAYING'
       }
     },
@@ -50,13 +57,17 @@ export default{
       changeTab (name) {
         this.curTab=name
       },
-      getDetail (id) {
+      tooglePlay () {
+        this.isPlay = !this.isPlay
+      },
+      getDetail (roomId) {
         const self = this
-        self.$http.get('/api/room/'+id).then(response => {
+        self.$http.get('/html5/live?roomId='+roomId).then(response => {
           let data = response.data
           let json = data.data
           if (data.error === 0) {
             self.room = json
+            console.log(json);
           }
         },(response)=>{console.log(response)})
       },
@@ -67,11 +78,73 @@ export default{
   }
 </script>
 <style lang='scss'>
-  .film-view {
-  .film-img-wrap {
-    overflow: hidden;
+  .video-view {
+  .player {
+    position: relative;
     width: 100%;
-    height: 310px;
+    height: 5.66666667rem;
+    overflow: hidden;
+    .video-js {
+      width: 100%;
+      height: 100%;
+    }
+    .poster {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: #000;
+      img {
+        width: 100%;
+        pointer-events: none;
+      }
+      .play-btn {
+        display: block;
+        position: absolute;
+        left: 4.46666667rem;
+        top: 2.4rem;
+        width: 1.06666667rem;
+        height: 1.06666667rem;
+        .icon {
+          font-size: 38px;
+          color: #fff;
+        }
+      }
+    }
+    .room-info {
+      position: absolute;
+      width: 100%;
+      height: .8rem;
+      line-height: .8rem;
+      left: 0;
+      bottom: 0;
+      font-size: .37333333rem;
+      background: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.1) 30%,rgba(0,0,0,.8) 100%);
+      background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.1) 30%,rgba(0,0,0,.8) 100%);
+      background: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.1) 30%,rgba(0,0,0,.8) 100%);
+      .name {
+        display: block;
+        float: left;
+        margin-left: .26666667rem;
+        width: 6.93333333rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: #fff;
+      }
+      .class {
+        display: block;
+        float: right;
+        margin-right: .26666667rem;
+        width: 2.26666667rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: #f70;
+        text-align: right;
+      }
+    }
   }
 
   .film-intro {

@@ -26,7 +26,14 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
-      }
+      },
+      '/html5': {
+        target: 'http://m.douyu.com/html5/live',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/html5': ''
+        }
+      },
     }
   }
 }

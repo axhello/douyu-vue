@@ -38,8 +38,20 @@
 .icon-users:before {
     content: "\e972";
 }
+.icon-star-full:before {
+    content: "\e9d9";
+}
 .icon-smile:before {
     content: "\e9e1";
+}
+.icon-play2:before {
+    content: "\ea15";
+}
+.icon-pause:before {
+    content: "\ea16";
+}
+.icon-stop:before {
+    content: "\ea17";
 }
 .icon-arrow-left:before {
     content: "\ea40";
