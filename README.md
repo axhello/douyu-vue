@@ -12,9 +12,13 @@
 
 ## 在线演示
 
-[请点这里查看](http://ciyuanai.net:8080/#!/)	
+[请点这里查看](http://ciyuanai.net:8080)	
 
-请打开chrome浏览器的手机模拟功能，来获得比较好的浏览效果。由于手机端不支持flash播放，斗鱼也不支持html,所以尚未找到有什么解决方案来播放直播。
+请打开chrome浏览器的手机模拟功能，来获得比较好的浏览效果。
+
+![二维码](https://o72gatjmx.qnssl.com/liantu.png)
+
+解决手机播放直播的问题啦，扫描二维码就可用手机看了，可能有些浏览器出现不兼容问题，欢迎提出[issue](https://github.com/axhello/douyu-vue/issues)
 
 ## Build Setup
 
@@ -42,4 +46,4 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ## License
 
-MIT license
+[MIT license](https://github.com/axhello/douyu-vue/blob/master/LICENSE)
