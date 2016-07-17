@@ -8,14 +8,13 @@
 
 ## 动图演示
 
-[无法查看请点这里](https://o72gatjmx.qnssl.com/Jul-16-2016-27-12.gif)
-
-![Demo](https://o72gatjmx.qnssl.com/Jul-16-2016-27-12.gif)
+[请点这里查看](https://o72gatjmx.qnssl.com/Jul-16-2016-27-12.gif)
 
 ## 在线演示
 
-[]()
+[请点这里查看](http://ciyuanai.net:8080/#!/)	
 
+请打开chrome浏览器的手机模拟功能，来获得比较好的浏览效果。由于手机端不支持flash播放，斗鱼也不支持html,所以尚未找到有什么解决方案来播放直播。
 
 ## Build Setup
 
