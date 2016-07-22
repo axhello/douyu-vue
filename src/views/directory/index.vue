@@ -1,6 +1,6 @@
 <template>
   <sidebar-header :icon="" :title="'全部分类'"></sidebar-header>
-	<div class="movie">
+	<div class="live">
 		<directory :rooms="directoryRoom"></directory>
 	</div>
 </template>

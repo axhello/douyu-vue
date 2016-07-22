@@ -16,7 +16,7 @@
     height: 30px;
     border: 1px solid #aaa;
     border-radius: 15px;
-    margin: 10px auto 30px;
+    margin: 20px auto 20px;
     text-align: center;
     line-height: 30px;
     font-size: 12px;

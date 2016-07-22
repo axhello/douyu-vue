@@ -1,15 +1,21 @@
 <template>
-  <div class="grid">
+  <div class="room-list clearfix">
     <index-item v-for="room in rooms" :room="room"></index-item>
   </div>
 </template>
 <style lang='scss'>
-  .grid {
-    width: 100%;
-    display: flex;
-    flex: 0 1 auto;
-    flex-flow: row wrap;
-    background-color: #eee;
+  @mixin clearfix() {
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  .clearfix {
+    @include clearfix()
   }
 </style>
 

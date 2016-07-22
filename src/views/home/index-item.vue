@@ -1,14 +1,12 @@
 <template>
-	<div class="room" v-link="{name: 'room', params: {id: room.room_id}}">
-        <a class="preview" href="#" title="">
-            <image-placeholder :src="room.room_src"></image-placeholder>
-            <div class="x">
-                <span class="x1">{{room.nickname}}</span>
-                <span class="x2"><i class="icon icon-users"></i> {{room.online | fixed}}</span>
-            </div>
-        	<p class="rname"><i class="icon icon-ondemand_video"></i> {{room.room_name}}</p>
-        </a>
+  <a class="room" v-link="{name: 'room', params: {id: room.room_id}}">
+    <image-placeholder :src="room.room_src"></image-placeholder>
+    <div class="room-info">
+      <span class="room-name">{{room.nickname}}</span>
+      <span class="room-online"><i class="icon icon-users"></i> {{room.online | fixed}}</span>
     </div>
+    <div class="room-title"><i class="icon icon-ondemand_video"></i> {{room.room_name}}</div>
+  </a>
 </template>
 <script>
     import ImagePlaceholder from '../../components/image-placeholder'
@@ -30,65 +28,59 @@
 </script>
 <style lang='scss'>
 .room {
-  display: flex;
-  flex: 1 1 auto;
-  align-items: center;
-  justify-content: center;
-  margin-top: .6rem;
+  float: left;
+  position: relative;
+  display: block;
+  margin: .13333333rem;
+  width: 4.6rem;
+  height: 3.28rem;
+  color: #333;
     img {
-	    width: 10pc;
-	    height: 6pc;
-	    border-radius: 7px;
-	}
-  .preview {
-	display: block;
-	overflow: hidden;
-	text-align: center;
-	transition: .2s all linear;
-	box-sizing: border-box;
-	position: relative;
-	.rname {
-	   color: #7E7E7E;
-	   margin: 0;
-	   width: 160px;
-	   font-size: 12px;
-	   padding: 5px 0 4px 6px;
-	   overflow: hidden;
-	   text-overflow: ellipsis;
-	   white-space: nowrap;
-	   word-break: break-all;
-	}
-	.x {
-		overflow: hidden;
+	    position: absolute;
+	    display: block;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 2.61333333rem;
+	    background-color: #000;
+	    border-radius: .2rem;
+		}
+	.room-title {
 		position: absolute;
-		z-index: 4;
-		bottom: 22px;
-		right: 0;
-		height: 20px;
-		width: 160px;
-		line-height: 20px;
-		transition: .2s;
-		border-top-left-radius: 4px;
+    bottom: 0;
+    left: .2rem;
+    width: 4rem;
+    color: #000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: .66666667rem;
 	}
-  }
+	.room-info {
+		position: absolute;
+    bottom: .66666667rem;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    padding: .1rem 0;
+    border-bottom-left-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+    background: linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.1) 30%,rgba(0,0,0,.8) 100%);
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.1) 30%,rgba(0,0,0,.8) 100%);
+    background: -moz-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.1) 30%,rgba(0,0,0,.8) 100%);
+    .room-name {
+    	white-space: nowrap;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	    max-width: 2.746666666rem;
+	    display: inline-block;
+	    padding-left: .2rem;
+    }
+    .room-online {
+    	float: right;
+    	padding-right: .2rem;
+    }
+	}
 }
-.x {
-   .x1 {
-	float: left;
-	text-align: left;
-	width: 80px;
-	color: #fff;
-	font-size: 12px;
-	margin: 0 5px 0 5px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-}
-.x2 {
-	float: right;
-	color: #fff;
-	font-size: 12px;
-	margin: 0 5px 0 5px;
-  }
-}
+  
 </style>

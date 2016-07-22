@@ -8,10 +8,9 @@
           </a>  
         </swipe-item>
       </swipe>
-      <div class="movie">
+      <div class="m-row">
           <hot-live :rooms="hotLiveRoom"></hot-live>
           <div v-if="limit < 100" class="more-button" @click="getHotLive">更多热门直播</div>
-          <!-- <more-button v-else v-link="{path:'/more'}">全部直播</more-button> -->
       </div>
     </section>
 </template>
@@ -61,7 +60,7 @@ require('vue-swipe/dist/vue-swipe.css')
 </script>
 <style lang='scss'>
   .my-swipe{
-    height: 5.3rem;
+    height: 4.5rem;
     color: #ffffff;
     font-size: 30px;
     text-align: center;
@@ -70,7 +69,12 @@ require('vue-swipe/dist/vue-swipe.css')
   .silde img{
     width: 100%;
   }
-  .movie ul{
-    padding-top: 18px;
+  .m-row {
+    position: relative;
+    box-sizing: border-box;
+    margin-top: .26666667rem;
+    padding: 0 .13333333rem .13333333rem;
+    width: 100%;
+    font-size: 12px;
   }
 </style>

@@ -48,11 +48,6 @@ export default{
         curTab:'NOW_PLAYING'
       }
     },
-    computed:{
-      loadingsrc() {
-        return 'http://staticlive.douyutv.com/common/share/play.swf?room_id=' + this.$route.params.id
-      }
-    },
     methods:{
       changeTab (name) {
         this.curTab=name
@@ -67,7 +62,6 @@ export default{
           let json = data.data
           if (data.error === 0) {
             self.room = json
-            console.log(json);
           }
         },(response)=>{console.log(response)})
       },
@@ -184,7 +178,7 @@ export default{
       padding: 10px;
       .icon {
         font-size: 18px;
-        margin-r: 5px;
+        margin-right: 5px;
       }
     }
   }
