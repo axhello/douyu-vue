@@ -1,8 +1,6 @@
 <template>
-    <div class="main">
-      <div class="application-view">
-        <router-view></router-view>
-      </div>
+    <div class="container">
+      <router-view></router-view>
       <sidebar :show.sync="show"></sidebar>
     </div>
 </template>
@@ -30,9 +28,6 @@ export default {
 <style lnag='scss'>
 @import './assets/styles/icon.css';
 @import './assets/styles/reset.css';
-.application-view{
-  padding: 50px 0 0;
-}
 body{
   background-color: #ebebeb;
 }
@@ -41,7 +36,7 @@ body{
 }
 img{
   width: 100%; 
-  transition: all 1.2s ease; 
+  transition: opacity 1.2s ease; 
   opacity: 1;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<section class="content">
+	<section class="detail">
 		<game :games="GameFilms"></game>
 	</section>
 </template>
@@ -35,3 +35,8 @@ export default {
     }
 }
 </script>
+<style lang='scss'>
+  .detail {
+    margin-top: 62px;
+  }
+</style>

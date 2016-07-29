@@ -1,6 +1,6 @@
 <template>
     <sidebar-header :icon="" :title=""></sidebar-header>
-    <section class="content" >
+    <section class="content">
       <swipe class="my-swipe">
         <swipe-item class="silde" v-for="billboard in billboards | limitBy 10 6">
           <a v-link="{name: 'room', params: {id: billboard.room_id}}">
@@ -9,15 +9,15 @@
         </swipe-item>
       </swipe>
       <div class="m-row">
-          <hot-live :rooms="hotLiveRoom"></hot-live>
-          <div v-if="limit < 100" class="more-button" @click="getHotLive">更多热门直播</div>
+          <index-live :rooms="hotLiveRoom"></index-live>
+          <div v-if="limit < 100" class="more-button" @click="getIndexLive">更多热门直播</div>
       </div>
     </section>
 </template>
 <script>
 import Sidebar from '../../components/sidebar'
 import SidebarHeader from '../../components/sidebar-header'
-import HotLive from './hot-live'
+import IndexLive from './index-live'
 import ImagePlaceholder from '../../components/image-placeholder'
 import MoreButton from '../../components/more-button'
 import { Swipe, SwipeItem } from 'vue-swipe'
@@ -32,10 +32,10 @@ require('vue-swipe/dist/vue-swipe.css')
       }
     },
     ready () {
-      this.getHotLive();
+      this.getIndexLive();
     },
     methods: {
-      getHotLive () {
+      getIndexLive () {
         const self = this
         self.limit = self.limit + 20
         if (self.limit > 100) {return false}
@@ -54,11 +54,14 @@ require('vue-swipe/dist/vue-swipe.css')
       },
     },
     components: {
-      Sidebar,SidebarHeader,HotLive,MoreButton,ImagePlaceholder,Swipe,SwipeItem,
+      Sidebar,SidebarHeader,IndexLive,MoreButton,ImagePlaceholder,Swipe,SwipeItem,
     }
   }
 </script>
 <style lang='scss'>
+  .content, .live {
+    margin-top: 50px;
+  }
   .my-swipe{
     height: 4.5rem;
     color: #ffffff;

@@ -24,35 +24,41 @@
     content: "\f054";
 }
 .icon-ondemand_video:before {
-    content: "\e63a";
+  content: "\e63a";
 }
 .icon-three-bars:before {
-    content: "\f05e";
+  content: "\f05e";
 }
 .icon-play:before {
-    content: "\e912";
+  content: "\e912";
 }
 .icon-user:before {
-    content: "\e971";
+  content: "\e971";
 }
 .icon-users:before {
-    content: "\e972";
+  content: "\e972";
+}
+.icon-fire:before {
+  content: "\e9a9";
 }
 .icon-star-full:before {
-    content: "\e9d9";
+  content: "\e9d9";
 }
 .icon-smile:before {
-    content: "\e9e1";
+  content: "\e9e1";
 }
 .icon-play2:before {
-    content: "\ea15";
+  content: "\ea15";
 }
 .icon-pause:before {
-    content: "\ea16";
+  content: "\ea16";
 }
 .icon-stop:before {
-    content: "\ea17";
+  content: "\ea17";
 }
 .icon-arrow-left:before {
-    content: "\ea40";
+  content: "\ea40";
+}
+.icon-share:before {
+  content: "\ea82";
 }

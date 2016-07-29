@@ -1,6 +1,6 @@
 <template>
 	<detail-header :icon="'icon-arrow-left'" :title="title"></detail-header>
-	<div class="movie">
+	<div class="room-detail">
 		<game-item v-for="game in games" :game="game"></game-item>
 	</div>
 </template>

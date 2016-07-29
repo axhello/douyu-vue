@@ -1,6 +1,6 @@
 <template>
   <div class="room-list clearfix">
-    <index-item v-for="room in rooms" :room="room"></index-item>
+    <index-live-item v-for="room in rooms" :room="room"></index-live-item>
   </div>
 </template>
 <style lang='scss'>
@@ -20,7 +20,7 @@
 </style>
 
 <script>
-  import IndexItem from './index-item'
+  import IndexLiveItem from './index-live-item'
 
   export default{
     props:{
@@ -30,7 +30,7 @@
       }
     },
     components:{
-        IndexItem
+        IndexLiveItem
       }
   }
 </script>
