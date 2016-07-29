@@ -1,7 +1,8 @@
 <template>
   <div class="video-view">
     <div class="player">
-        <video id="dy-video-player" class="video-js" type="application/x-mpegURL" :src="room.hls_url">
+        <video id="video-player" class="video-js">
+            <source type="application/x-mpegURL" :src="room.hls_url">
             <p>您的浏览器不支持 video 标签</p>
         </video>
         <div class="poster" v-show="isPlay">
