@@ -28,6 +28,7 @@ export default {
 <style lnag='scss'>
 @import './assets/styles/icon.css';
 @import './assets/styles/reset.css';
+@import './assets/styles/video-js.css';
 body{
   background-color: #ebebeb;
 }

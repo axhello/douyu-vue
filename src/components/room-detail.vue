@@ -1,26 +1,6 @@
 <template>
   <div class="video-view">
-    <div class="player">
-        <video id="video-player" class="video-js">
-            <source type="application/x-mpegURL" :src="room.hls_url">
-            <p>您的浏览器不支持 video 标签</p>
-        </video>
-        <div class="poster" v-show="isPlay">
-            <img :src="room.room_src" id="video-poster">
-            <div class="play-btn" @click="tooglePlay"><i class="icon icon-play2"></i></div>
-            <div class="room-info">
-                <span class="name">{{room.room_name}}</span>
-                <span class="class">{{room.tag_name}}</span>
-            </div>
-        </div>
-    </div>  
-    <div class="info-bar">
-      <div class="live-info">
-        <div class="nickname">主播: <span>{{room.nickname}}</span></div>
-        <div class="online">共<span>{{room.online}}</span>人正在观看</div>
-      </div>
-      <div class="live-share">分享<span class="icon icon-share"></span></div>
-    </div>
+    <live-video :room="room"></live-video>
     <div class="favors">
       <div class="title"><span class="icon icon-play"></span>同类直播</div>
       <div class="live-list clearfix">
@@ -38,6 +18,7 @@
 
 <script>
 import DetailHeader from './detail-header'
+import LiveVideo from './live-video'
 import LikeLive from './like-live'
 import HotLive from './hot-live'
 export default{
@@ -47,23 +28,17 @@ export default{
       this.getHotLive()
     },
     data(){
-      return{
-        room: [],
-        likeness:[],
+      return {
+        room:{},
         hots:[],
-        isPlay: true,
+        likeness:[],
       }
     },
     methods:{
-      changeTab (name) {
-        this.curTab=name
-      },
-      tooglePlay () {
-        this.isPlay = !this.isPlay
-      },
       getDetail (roomId) {
         const self = this
-        self.$http.get('/html5/live?roomId='+roomId).then(response => {
+        self.$http.get('/html5/live?roomId='+roomId)
+        .then(response => {
           let data = response.data
           let json = data.data
           if (data.error === 0) {
@@ -99,22 +74,22 @@ export default{
       }
     },
     components: {
-      DetailHeader,LikeLive,HotLive
+      DetailHeader,LiveVideo,LikeLive,HotLive
     }
   }
 </script>
 <style lang='scss'>
   .video-view {
     width: 100%;
+    .video-js {
+      width: 100%;
+      height: 100%;
+    }
     .player {
       position: relative;
       width: 100%;
       height: 5.66666667rem;
       overflow: hidden;
-      .video-js {
-        width: 100%;
-        height: 100%;
-      }
       .poster {
         position: absolute;
         width: 100%;
@@ -176,12 +151,13 @@ export default{
   }
   .info-bar {
     width: 100%;
-    height: 1.33333333rem;
+    height: 1.3333333rem;
     border-bottom: .02666667rem solid #ddd;
     background-color: #fff;
     .live-info {
+      display: inline-block;
       float: left;
-      margin-top: .13333333rem;
+      margin-top: .266666665rem;
       margin-left: .26666667rem;
       text-align: left;
       .nickname {
@@ -190,7 +166,7 @@ export default{
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
-        display: inline-block;
+        padding: 2px 0;
       }
       .online {
         font-size: .32rem;

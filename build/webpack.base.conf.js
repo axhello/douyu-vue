@@ -18,7 +18,7 @@ module.exports = {
     alias: {
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'components': path.resolve(__dirname, '../src/components')  
     }
   },
   resolveLoader: {
@@ -73,7 +73,14 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: require.resolve("videojs-contrib-hls"),
+        loader: "imports?this=>window"
       }
+    ],
+    noParse: [
+      /node_modules[\/]video\.js[\/]/
     ]
   },
   eslint: {
