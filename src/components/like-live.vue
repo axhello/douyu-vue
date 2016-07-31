@@ -1,5 +1,5 @@
 <template>
-	<a v-link="{name: 'room', params: {id: like.room_id}}" class="live" data-fish="1">
+	<a :href="'#!/room/'+like.room_id" class="live" @click="refresh">
     <img :src="like.room_src" class="live-feature">
     <div class="live-title">{{like.room_name}}</div>
     <div class="live-info">
@@ -16,8 +16,10 @@ export default {
       required:true
     }
   },
-  data(){
-    return{}
-  },
+  methods: {
+    refresh () {
+      window.location.reload()
+    }
+  }
 }
 </script>
