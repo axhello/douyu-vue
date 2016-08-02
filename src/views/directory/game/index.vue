@@ -6,32 +6,35 @@
 <script>
 import Game from './game'
 export default {
-	data() {
+	  data() {
       return {
         GameFilms:[],
+        limit: 100,
+        offset: 0,
       }
     },
-    ready(){
-       this.getGameFilms(this.$route.params.id)
+    ready() {
+       this.getGameFilms(this.$route.params.id, this.limit)
     },
     methods: {
-    	getGameFilms(id) {
-    	const self = this
+    	getGameFilms (name, limit=30, offset=0) {
+    	  const self = this
         let successCallback = (response) => {
-        const data = response.data
-        const json = data.data
-        if (data.error === 0) {
+          const data = response.data
+          const json = data.data
+          if (data.error === 0) {
             self.GameFilms = json
           }
         }
         let errorCallback = (json) => {
           //console.log(json)
         }
-        self.$http.get('/api/live/'+id).then(successCallback, errorCallback)
-    	}
+        let apiUrl = '/api/live/'+name+'?limit='+limit+'&offset='+offset+''
+        self.$http.get(apiUrl).then(successCallback, errorCallback)
+    	},
     },
     components: {
-       Game
+      Game
     }
 }
 </script>

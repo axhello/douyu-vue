@@ -31,6 +31,7 @@ export default {
 @import './assets/styles/video-js.css';
 body{
   background-color: #ebebeb;
+  height: 100%;
 }
 *{
   box-sizing: border-box;

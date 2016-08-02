@@ -33,10 +33,6 @@
             required:true
           }
         },
-        data(){
-          return {
-          }
-        },
         methods:{
           goBack () {
             window.history.back()

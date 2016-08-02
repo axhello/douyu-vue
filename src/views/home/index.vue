@@ -10,7 +10,7 @@
       </swipe>
       <div class="m-row">
           <index-live :rooms="hotLiveRoom"></index-live>
-          <div v-if="limit < 100" class="more-button" @click="getIndexLive">更多热门直播</div>
+          <more-button v-if="limit < 100" @click="getIndexLive">更多热门直播</more-button>
       </div>
     </section>
 </template>

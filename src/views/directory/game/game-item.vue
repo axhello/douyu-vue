@@ -17,10 +17,6 @@ export default{
         required:true
       }
     },
-    data(){
-      return{
-      }
-    },
     ready() {
       this.getTitle()
     },
@@ -37,24 +33,26 @@ export default{
 <style lang='scss'>
 $font-color:#7E7E7E;
 .list-block {
+  cursor: pointer;
+  position: relative;
+  min-height: 1.68rem;
+  margin: 0.447rem;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
-  margin: 15px;
-  cursor: pointer;
   img {
     width: 10pc;
     height: 5.5pc;
   }
   .column {
-    font-size: 12px;
+    font-size: 12.5px;
     line-height: 1.2;
-    margin-left: 10px;
+    margin-left: 0.267rem;
     -webkit-flex: 1;
     flex: 1;
     .rtitle {
-      color: $font-color;
+      /*color: $font-color;*/
       margin-bottom: 5px;
     }
     .up, .prev {

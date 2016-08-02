@@ -3,20 +3,13 @@
     <slot></slot>
   </div>
 </template>
-
-<script>
-  export default{
-
-  }
-</script>
-
 <style lang='scss'>
   .more-button {
     width: 160px;
     height: 30px;
     border: 1px solid #aaa;
     border-radius: 15px;
-    margin: 20px auto 20px;
+    margin: 10px auto 10px;
     text-align: center;
     line-height: 30px;
     font-size: 12px;

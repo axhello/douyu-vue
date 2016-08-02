@@ -62,3 +62,6 @@
 .icon-share:before {
   content: "\ea82";
 }
+.icon-home:before {
+  content: "\e902";
+}

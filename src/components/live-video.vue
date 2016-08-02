@@ -1,5 +1,5 @@
 <template>
-	<div class="player">
+	  <div class="player">
         <video id="video-player" class="video-js" controls>
         		<source :src="room.hls_url" type="application/x-mpegURL">
             <p>您的浏览器不支持 video 标签</p>
@@ -22,7 +22,7 @@
     </div>
 </template>
 <script>
-import videojs from "video.js"
+import videojs from 'video.js'
 require('imports?this=>window!videojs-contrib-hls')
 export default {
 	props:{

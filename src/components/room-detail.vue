@@ -1,40 +1,58 @@
 <template>
+  <room-header :icon="'icon-arrow-left'" :title="'斗鱼TV'"></room-header>
   <div class="video-view">
-    <live-video :room="room"></live-video>
-    <div class="favors">
-      <div class="title"><span class="icon icon-play"></span>同类直播</div>
-      <div class="live-list clearfix">
-        <like-live v-for="like in likeness | limitBy 4" :like="like"></like-live>
+    <div class="player">
+        <video id="video-player" class="video-js" type="application/x-mpegURL" controls="true">
+            <source :src="room.hls_url" type="application/x-mpegURL">
+            <p>您的浏览器不支持 video 标签</p>
+        </video>
+        <div class="poster" v-show="isPlay">
+            <img :src="room.room_src" id="video-poster">
+            <div class="play-btn" @click="playVideo"><i class="icon icon-play2"></i></div>
+            <div class="room-info">
+                <span class="name">{{room.room_name}}</span>
+                <span class="class">{{room.tag_name}}</span>
+            </div>
+        </div>
+    </div>  
+    <div class="info-bar">
+      <div class="live-info">
+        <div class="nickname">主播: <span>{{room.nickname}}</span></div>
+        <div class="online">共<span>{{room.online | fixed}}</span>人正在观看</div>
       </div>
+      <div class="live-share">分享<span class="icon icon-share"></span></div>
     </div>
     <div class="favors">
       <div class="title"><span class="icon icon-fire"></span>热门直播</div>
       <div class="live-list clearfix">
-        <hot-live v-for="hot in hots | limitBy 4" :hot="hot"></hot-live>
+        <hot-live v-for="hot in hots | limitBy 6" :hot="hot"></hot-live>
       </div>
+      <more-button>加载更多</more-button>
     </div>
   </div>
 </template>
 
 <script>
-import DetailHeader from './detail-header'
-import LiveVideo from './live-video'
-import LikeLive from './like-live'
+import RoomHeader from './room-header'
 import HotLive from './hot-live'
+import MoreButton from './more-button'
+import videojs from 'video.js'
+require('imports?this=>window!videojs-contrib-hls')
+// import hls from 'hls.js'
 export default{
-    ready(){
+    ready() {
       this.getDetail(this.$route.params.id)
-      this.getLikelive()
       this.getHotLive()
     },
-    data(){
+    data() {
       return {
         room:{},
         hots:[],
         likeness:[],
+        isPlay: true,
       }
     },
-    methods:{
+    methods: {
       getDetail (roomId) {
         const self = this
         self.$http.get('/html5/live?roomId='+roomId)
@@ -46,18 +64,10 @@ export default{
           }
         },(error) => {console.log(error)})
       },
-      getLikelive () {
-        const self = this
-        self.$http.get('/api/live/yxtx')
-        .then(response => {
-          let data = response.data
-          let json = data.data
-          if (data.error === 0) {
-            self.likeness = json
-          }
-        },(error) => {
-          console.log(error);
-        })
+      playVideo () {
+        this.isPlay = !this.isPlay
+        const player = videojs('video-player');
+        player.play()
       },
       getHotLive () {
         const self = this
@@ -68,19 +78,18 @@ export default{
           if (data.error === 0) {
             self.hots = json
           }
-        }, (error) => {
-          console.log(error);
-        })
+        }, (error) => {console.log(error)})
       }
     },
     components: {
-      DetailHeader,LiveVideo,LikeLive,HotLive
+      RoomHeader,HotLive,MoreButton
     }
   }
 </script>
 <style lang='scss'>
   .video-view {
     width: 100%;
+    margin-top: 50px;
     .video-js {
       width: 100%;
       height: 100%;

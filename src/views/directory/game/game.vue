@@ -1,11 +1,11 @@
 <template>
-	<detail-header :icon="'icon-arrow-left'" :title="title"></detail-header>
+	<room-header :icon="'icon-arrow-left'" :title="title"></room-header>
 	<div class="room-detail">
 		<game-item v-for="game in games" :game="game"></game-item>
 	</div>
 </template>
 <script>
-import DetailHeader from '../../../components/detail-header'
+import RoomHeader from '../../../components/room-header'
 import GameItem from './game-item'
 export default {
 	props:{
@@ -25,7 +25,7 @@ export default {
 	    }
   	},
 	components: {
-		DetailHeader,GameItem
+		RoomHeader,GameItem
 	}
 }
 </script>
