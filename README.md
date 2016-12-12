@@ -1,24 +1,17 @@
-# Douyu-vue
-
-> A Vue.js project
-
-## 关于
+# douyu-vue
 
 本项目利用斗鱼提供的[第三方开发平台API](http://dev-bbs.douyutv.com/forum.php?mod=viewthread&tid=113&extra=page%3D1)进行开发，所有文字图片等资源都由 [斗鱼](http://www.douyu.com/) 提供，本项目开源只用于分享、学习用。
 
 ## 动图演示
-
+这里的动图是此版本的动图演示
 [请点这里查看](https://o72gatjmx.qnssl.com/Jul-16-2016-27-12.gif)
 
 ## 在线演示
+这里的在线演示是vuex版本的，推荐使用vuex版本的，在状态管理上比较容易
 
-[请点这里查看](http://ciyuanai.net:8080)	
+[请点这里查看](http://douyu.ciyuanai.net)	
 
 请打开chrome浏览器的手机模拟功能，来获得比较好的浏览效果。
-
-![二维码](https://o72gatjmx.qnssl.com/liantu.png)
-
-解决手机播放直播的问题啦，扫描二维码就可用手机看了，可能有些浏览器出现不兼容问题，欢迎提出[issue](https://github.com/axhello/douyu-vue/issues)
 
 ## Build Setup
 
