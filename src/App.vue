@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lnag='scss'>
+<style lang='scss'>
 @import './assets/styles/icon.css';
 @import './assets/styles/reset.css';
 @import './assets/styles/video-js.css';
