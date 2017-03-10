@@ -8,13 +8,13 @@
 import RoomHeader from '../../../components/room-header'
 import GameItem from './game-item'
 export default {
-	props:{
-      games:{
-        type:Array,
-        required:true
+	props: {
+      games: {
+        type: Array,
+        required: true
       }
     },
-    data() {
+    data () {
     	return {
     		title: ''
     	}
@@ -25,7 +25,8 @@ export default {
 	    }
   	},
 	components: {
-		RoomHeader,GameItem
+		RoomHeader,
+    GameItem
 	}
 }
 </script>

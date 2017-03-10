@@ -10,10 +10,10 @@
 </template>
 <script>
 export default {
-	props:{
-    hot:{
-      type:Object,
-      required:true
+	props: {
+    hot: {
+      type: Object,
+      required: true
     }
   },
   methods: {

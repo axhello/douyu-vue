@@ -17,9 +17,9 @@
 
 <script>
   import SidebarHeader from '../../components/sidebar-header'
-  export default{
+  export default {
     methods: {
-      login(){
+      login () {
         alert("功能尚未完善")
         return false
       }

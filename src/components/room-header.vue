@@ -16,9 +16,9 @@
   </nav>
 </template>
 <script>
-export default{
-  props:{
-    icon:{
+export default {
+  props: {
+    icon: {
       type: String,
       default: 'icon-three-bars',
     },
@@ -27,11 +27,11 @@ export default{
       default: '斗鱼TV',
     }
   },
-  methods:{
-    goBack() {
+  methods: {
+    goBack () {
       window.history.back()
     },
-    showNav(){
+    showNav () {
       this.$dispatch('showNav');
     }
   }

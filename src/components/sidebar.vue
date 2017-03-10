@@ -15,17 +15,16 @@
   </aside>
 </template>
 <script>
-  export default{
+  export default {
     props: {
       show: {
         type: Boolean,
-        default:false,
-//        twoWay:true
+        default: false
       }
     },
-    methods:{
-      hideNav(){
-        this.show=false
+    methods: {
+      hideNav () {
+        this.show = false
       }
     }
   }
@@ -57,7 +56,7 @@
     .sidebar-overlay {
       background: rgba(0,0,0,0.5);
       position: absolute;
-      top: 50px;
+      top: 45px;
       right: 0;
       bottom: 0;
       left: 0;

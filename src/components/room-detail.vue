@@ -8,7 +8,7 @@
         </video>
         <div class="poster" v-show="isPlay">
             <img :src="room.room_src" id="video-poster">
-            <div class="play-btn" @click="playVideo"><i class="icon icon-play2"></i></div>
+            <div class="play-btn"><i class="icon icon-play2"></i></div>
             <div class="room-info">
                 <span class="name">{{room.room_name}}</span>
                 <span class="class">{{room.tag_name}}</span>
@@ -36,19 +36,16 @@
 import RoomHeader from './room-header'
 import HotLive from './hot-live'
 import MoreButton from './more-button'
-import videojs from 'video.js'
-require('imports?this=>window!videojs-contrib-hls')
-// import hls from 'hls.js'
-export default{
-    ready() {
+export default {
+    ready () {
       this.getDetail(this.$route.params.id)
       this.getHotLive()
     },
-    data() {
+    data () {
       return {
-        room:{},
-        hots:[],
-        likeness:[],
+        room: {},
+        hots: [],
+        likeness: [],
         isPlay: true,
       }
     },
@@ -56,18 +53,13 @@ export default{
       getDetail (roomId) {
         const self = this
         self.$http.get('/html5/live?roomId='+roomId)
-        .then(response => {
+         .then(response => {
           let data = response.data
           let json = data.data
           if (data.error === 0) {
             self.room = json
           }
         },(error) => {console.log(error)})
-      },
-      playVideo () {
-        this.isPlay = !this.isPlay
-        const player = videojs('video-player');
-        player.play()
       },
       getHotLive () {
         const self = this
@@ -82,14 +74,16 @@ export default{
       }
     },
     components: {
-      RoomHeader,HotLive,MoreButton
+      RoomHeader,
+      HotLive,
+      MoreButton
     }
   }
 </script>
 <style lang='scss'>
   .video-view {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 45px;
     .video-js {
       width: 100%;
       height: 100%;

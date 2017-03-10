@@ -20,9 +20,9 @@
   </nav>
 </template>
 <script>
-    export default{
-        props:{
-          icon:{
+    export default {
+        props: {
+          icon: {
             type: String,
             default: 'icon-three-bars',
             required:true
@@ -33,11 +33,11 @@
             required:true
           }
         },
-        methods:{
+        methods: {
           goBack () {
             window.history.back()
           },
-          showNav(){
+          showNav () {
             this.$dispatch('showNav');
           }
         }
@@ -52,7 +52,7 @@
     right: 0;
     left: 0;
     width: auto;
-    height: 50px;
+    height: 45px;
     line-height: 50px;
     overflow: hidden;
     h1 {
@@ -62,7 +62,7 @@
       text-align: left;
       text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
       width: auto;
-      height: 50px;
+      height: 45px;
       margin: 0 auto;
       float: left;
       a{

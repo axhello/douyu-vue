@@ -10,22 +10,22 @@
 </template>
 <script>
 import ImagePlaceholder from '../../../components/image-placeholder'
-export default{
-    props:{
-      game:{
-        type:Object,
-        required:true
+export default {
+    props: {
+      game: {
+        type: Object,
+        required: true
       }
     },
-    ready() {
+    ready () {
       this.getTitle()
     },
     methods: {
-      getTitle(){
+      getTitle () {
         this.$dispatch('header-title', this.game.game_name);
        }
     },
-    components:{
+    components: {
       ImagePlaceholder
     }
 }

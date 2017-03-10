@@ -6,16 +6,15 @@
 
 <script>
   import DirectoryItem from './directory-item'
-  export default{
-    props:{
-      rooms:{
-        type:Array,
-        required:true
+  export default {
+    props: {
+      rooms: {
+        type: Array,
+        required: true
       }
     },
-    data(){
-      return {
-      }
+    data () {
+      return {}
     },
     components: {
       DirectoryItem

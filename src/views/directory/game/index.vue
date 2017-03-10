@@ -6,14 +6,14 @@
 <script>
 import Game from './game'
 export default {
-	  data() {
+	  data () {
       return {
-        GameFilms:[],
+        GameFilms: [],
         limit: 100,
         offset: 0,
       }
     },
-    ready() {
+    ready () {
        this.getGameFilms(this.$route.params.id, this.limit)
     },
     methods: {

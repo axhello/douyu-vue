@@ -21,13 +21,12 @@ import IndexLive from './index-live'
 import ImagePlaceholder from '../../components/image-placeholder'
 import MoreButton from '../../components/more-button'
 import { Swipe, SwipeItem } from 'vue-swipe'
-require('vue-swipe/dist/vue-swipe.css')
 
-  export default{
+  export default {
     data () {
       return {
-        billboards:[],
-        hotLiveRoom:[],
+        billboards: [],
+        hotLiveRoom: [],
         limit: 0,  
       }
     },
@@ -54,19 +53,22 @@ require('vue-swipe/dist/vue-swipe.css')
       },
     },
     components: {
-      Sidebar,SidebarHeader,IndexLive,MoreButton,ImagePlaceholder,Swipe,SwipeItem,
+      Sidebar,
+      SidebarHeader,
+      IndexLive,
+      MoreButton,
+      ImagePlaceholder,
+      Swipe,
+      SwipeItem
     }
   }
 </script>
 <style lang='scss'>
   .content, .live {
-    margin-top: 50px;
+    margin-top: 45px;
   }
   .my-swipe{
-    height: 4.5rem;
-    color: #ffffff;
-    font-size: 30px;
-    text-align: center;
+    height: 5rem;
     overflow: hidden;
   }
   .silde img{

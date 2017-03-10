@@ -50,7 +50,7 @@
     bottom: 0;
     left: .2rem;
     width: 4rem;
-    color: #000;
+    color: #3a3a3a;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

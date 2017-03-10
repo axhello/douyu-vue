@@ -33,7 +33,8 @@ export default {
     	}
     },
     components: {
-      SidebarHeader,Directory
+      SidebarHeader,
+      Directory
     }
 }
 </script>

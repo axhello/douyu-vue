@@ -7,13 +7,13 @@
 <script>
 import ImagePlaceholder from '../../components/image-placeholder'
  export default {
-    props:{
-      room:{
-        type:Object,
-        required:true
+    props: {
+      room: {
+        type: Object,
+        required: true
       }
     },
-    components:{
+    components: {
       ImagePlaceholder
     }
  }

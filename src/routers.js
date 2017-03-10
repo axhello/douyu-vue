@@ -7,16 +7,6 @@ export default (router) => router.map({
     name: 'login',
     component: require('./views/member/login')
   },
-  // '/more': {
-  //   name: 'more',
-  //   component: require('./views/room/more-view'),
-    // subRoutes: {
-    //   '/detail/:id':{
-    //     name:'detail',
-    //     component: require('./views/film/detail')
-    //   }
-    // }
-  // },
   '/room/:id':{
     name:'room',
     component:require('./components/room-detail')
