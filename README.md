@@ -4,8 +4,10 @@
 
 ## 动图演示
 这里的动图是此版本的动图演示
-！[shot-1](https://github.com/axhello/douyu-vue/blob/master/screenshot/shot-1.gif)
-！[shot-2](https://github.com/axhello/douyu-vue/blob/master/screenshot/shot-2.gif)
+
+![shot-1](https://github.com/axhello/douyu-vue/blob/master/screenshot/shot-1.gif)
+
+![shot-2](https://github.com/axhello/douyu-vue/blob/master/screenshot/shot-2.gif)
 
 ## Vuex版本
 
