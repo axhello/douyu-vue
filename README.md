@@ -4,12 +4,11 @@
 
 ## 动图演示
 这里的动图是此版本的动图演示
-[请点这里查看](https://o72gatjmx.qnssl.com/Jul-16-2016-27-12.gif)
+！[shot-1](https://github.com/axhello/douyu-vue/blob/master/screenshot/shot-1.gif)
+！[shot-2](https://github.com/axhello/douyu-vue/blob/master/screenshot/shot-2.gif)
 
-## 在线演示 
-这里的在线演示是[vuex版本](https://github.com/axhello/vuex-douyu)的，推荐使用vuex版本的，在状态管理上比较容易；
-
-[请点这里查看](http://douyu.ciyuanai.net)(注意跨域问题)
+## Vuex版本
+推荐使用vuex版本的 [Vuex版本](https://github.com/axhello/vuex-douyu)
 
 请打开chrome浏览器的手机模拟功能，来获得比较好的浏览效果。
 
