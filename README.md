@@ -8,9 +8,8 @@
 ！[shot-2](https://github.com/axhello/douyu-vue/blob/master/screenshot/shot-2.gif)
 
 ## Vuex版本
-推荐使用vuex版本的 [Vuex版本](https://github.com/axhello/vuex-douyu)
 
-请打开chrome浏览器的手机模拟功能，来获得比较好的浏览效果。
+推荐使用vuex版本的 [Vuex版本](https://github.com/axhello/vuex-douyu)
 
 ## Build Setup
 
