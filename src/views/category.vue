@@ -1,12 +1,12 @@
 <template>
   <div class="n-list clearfix">
-    <router-link v-for="(catelist, index) in catelists"
+    <a v-for="(catelist, index) in catelists"
       :key="index"
       class="n-list-item"
       @click="rooms(catelist)">
       <img class="live-feature" :src="catelist.icon">
       <p class="title">{{ catelist.cate2Name }}</p>
-    </router-link>
+    </a>
   </div>
 </template>
 
@@ -31,15 +31,17 @@ export default {
     fetchData() {
       const url = `/category?type=${this.$route.params.type}`
       this.$axios.get(url).then(response => {
-        console.log(response.data)
         this.cateName = response.data.cate1Info.cate1Name
         this.catelists = response.data.cate2Info
         this.$cookie.set('cateName', this.cateName)
       })
     },
     rooms(catelist) {
-      this.$cookie.set('gameName', catelist.shortName)
-      this.$router.push({ name: 'rooms', params: { name: catelist.shortName }})
+      this.$cookie.set('gameName', catelist.cate2Name)
+      this.$router.push({
+        name: 'rooms',
+        params: { name: catelist.shortName }
+      })
     }
   }
 }

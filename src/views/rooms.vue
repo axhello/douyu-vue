@@ -57,6 +57,7 @@ export default {
   },
   mounted() {
     this.cateName = this.$cookie.get('cateName')
+    this.gameName = this.$cookie.get('gameName')
   },
   methods: {
     fetchData() {
