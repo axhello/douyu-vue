@@ -8,34 +8,21 @@
 ![demo-1](https://github.com/axhello/douyu-vue/blob/master/screenshot/demo-1.gif)
 ![demo-2](https://github.com/axhello/douyu-vue/blob/master/screenshot/demo-2.gif)
 
+## 使用本地Proxy代理，解决跨域问题
+
 ## Vuex版本
 
 推荐使用vuex版本的 [Vuex版本](https://github.com/axhello/vuex-douyu)
 
-## Build Setup
+## 本地运行
 
 ``` bash
 # install dependencies
-npm install
+npm install or yarn install
 
 # serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+npm run dev or yarn run dev
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## License
-
-[MIT license](https://github.com/axhello/douyu-vue/blob/master/LICENSE)
