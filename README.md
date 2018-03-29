@@ -5,8 +5,8 @@
 ## 动图演示
 这里的动图是此版本的动图演示
 
-![demo-1](https://github.com/axhello/vuex-douyu/blob/master/screenshot/demo-1.gif)
-![demo-2](https://github.com/axhello/vuex-douyu/blob/master/screenshot/demo-2.gif)
+![demo-1](https://github.com/axhello/douyu-vue/blob/master/screenshot/demo-1.gif)
+![demo-2](https://github.com/axhello/douyu-vue/blob/master/screenshot/demo-2.gif)
 
 ## Vuex版本
 
