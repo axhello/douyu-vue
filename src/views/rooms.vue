@@ -1,31 +1,36 @@
 <template>
   <div class="m-row">
     <div class="title">
-      <svg-icon icon-class="tv"></svg-icon>
-      <span>{{cateName}}</span>
-      <strong>{{gameName}}</strong>
+      <svg-icon icon-class="tv" />
+      <span>{{ cateName }}</span>
+      <strong>{{ gameName }}</strong>
     </div>
     <div class="live-list clearfix">
-      <router-link v-for="(roomlist, index) in roomlists"
+      <router-link
+        v-for="(roomlist, index) in roomlists"
         :key="index"
-        :to="{name: 'detail', params: {id: roomlist.room_id}}"
+        :to="{name: 'detail', params: {id: roomlist.rid}}"
         class="live">
-        <img class="live-feature"
-          :src="roomlist.room_src">
-        <div class="live-title">{{roomlist.room_name}}</div>
+        <img class="live-feature" :src="roomlist.roomSrc">
+        <div class="live-title">
+          {{ roomlist.roomName }}
+        </div>
         <div class="live-info">
-          <span class="dy-name">{{roomlist.nickname}}</span>
-          <span class="popularity">{{roomlist.online | fixed}}</span>
+          <span class="dy-name">
+            {{ roomlist.nickname }}
+          </span>
+          <span class="popularity">
+            {{ roomlist.hn }}
+          </span>
         </div>
       </router-link>
     </div>
     <v-more-button>
-      <div class="more-button"
-        v-if="!hidden">
-        <div v-show="!loading"
-          @click="loadMore">加载更多</div>
-        <div v-show="loading"
-          class="ball-pulse">
+      <div v-if="!hidden" class="more-button">
+        <div v-show="!loading" @click="loadMore">
+          加载更多
+        </div>
+        <div v-show="loading" class="ball-pulse">
           <div></div>
           <div></div>
           <div></div>
@@ -35,16 +40,24 @@
   </div>
 </template>
 <script>
-import VMoreButton from '~/v-more-button.vue'
+import VMoreButton from '@/components/v-more-button'
+import { rooms } from '@/api/mobile'
 export default {
-  name: 'rooms',
-  props: ['name'],
+  name: 'Rooms',
+  components: {
+    VMoreButton
+  },
+  props: {
+    name: {
+      type: String,
+      default: ''
+    }
+  },
   data: () => ({
     roomlists: [],
     params: {
       name: '',
-      offset: 0,
-      limit: 8
+      page: 1
     },
     hidden: false,
     loading: false,
@@ -52,7 +65,6 @@ export default {
     gameName: ''
   }),
   created() {
-    this.params.name = this.name
     this.fetchData()
   },
   mounted() {
@@ -61,28 +73,20 @@ export default {
   },
   methods: {
     fetchData() {
-      const url = `/api/live/${this.params.name}?offset=${this.params.offset}&limit=${this.params.limit}`
-      this.$axios.get(url).then(response => {
+      rooms({ page: this.params.page, type: this.name }).then(response => {
         this.loading = false
-        this.roomlists = response.data.data
+        this.roomlists = response.data.list
       })
     },
     loadMore() {
-      this.params.limit = this.params.limit + 8
-      if (this.params.limit > 100) {
-        this.params.limit = 100
-        this.hidden = true
-      }
       this.loading = true
+      this.params.page = ++this.params.page
       this.fetchData()
     }
-  },
-  components: {
-    VMoreButton
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .m-row {
   .play-icon {
     width: 0.3999999rem;
@@ -139,11 +143,7 @@ export default {
       /*padding: .1rem 0;*/
       border-bottom-left-radius: 0.2rem;
       border-bottom-right-radius: 0.2rem;
-      background: linear-gradient(
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.1) 30%,
-        rgba(0, 0, 0, 0.8) 100%
-      );
+      background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.8) 100%);
       .dy-name {
         white-space: nowrap;
         text-overflow: ellipsis;

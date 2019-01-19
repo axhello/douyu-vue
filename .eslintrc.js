@@ -1,27 +1,51 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    sourceType: 'module'
   },
   env: {
     browser: true,
+    node: true,
+    es6: true
   },
-  extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    'standard'
-  ],
-  // required to lint *.vue files
-  plugins: [
-    'vue'
-  ],
+  extends: ['plugin:vue/recommended', 'eslint:recommended'],
+
   // add your custom rules here
+  // it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
-    "vue/html-self-closing": "off",
+    'vue/max-attributes-per-line': [2, {
+      'singleline': 10,
+      'multiline': {
+        'max': 1,
+        'allowFirstLine': false
+      }
+    }],
+    'vue/name-property-casing': ['error', 'PascalCase' | 'kebab-case'],
+    'vue/no-multi-spaces': ['error', {
+      'ignoreProperties': false
+    }],
+    'vue/html-self-closing': ['error', {
+      'html': {
+        'void': 'never',
+        'normal': 'never',
+        'component': 'always'
+      },
+      'svg': 'never',
+      'math': 'never'
+    }],
+    'vue/html-closing-bracket-newline': ['error', {
+      'singleline': 'never',
+      'multiline': 'never'
+    }],
+    'vue/singleline-html-element-content-newline': ['error', {
+      'ignoreWhenNoAttributes': true,
+      'ignoreWhenEmpty': true,
+      'ignores': ['pre', 'textarea']
+    }],
+    'vue/no-use-v-if-with-v-for': ['error', {
+      'allowUsingIterationVar': true
+    }],
     'accessor-pairs': 2,
     'arrow-spacing': [2, {
       'before': true,
@@ -73,7 +97,7 @@ module.exports = {
     'no-class-assign': 2,
     'no-cond-assign': 2,
     'no-const-assign': 2,
-    'no-control-regex': 2,
+    'no-control-regex': 0,
     'no-delete-var': 2,
     'no-dupe-args': 2,
     'no-dupe-class-members': 2,
@@ -190,7 +214,6 @@ module.exports = {
     'object-curly-spacing': [2, 'always', {
       objectsInObjects: false
     }],
-    'array-bracket-spacing': [2, 'never'],
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'array-bracket-spacing': [2, 'never']
   }
 }

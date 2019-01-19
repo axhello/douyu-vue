@@ -1,18 +1,26 @@
 <template>
   <section class="content">
     <div class="m-row">
-      <v-swiper></v-swiper>
+      <v-swiper />
       <div class="live-list">
-        <router-link v-for="(livelist, index) in livelists"
+        <router-link
+          v-for="(livelist, index) in livelists"
           :key="index"
-          :to="{name: 'detail', params: {id: livelist.room_id}}"
+          :to="{name: 'detail', params: { id: livelist.rid }}"
           class="live">
-          <img class="live-feature"
-            :src="livelist.room_src">
-          <div class="live-title">{{livelist.room_name}}</div>
+          <img
+            class="live-feature"
+            :src="livelist.roomSrc">
+          <div class="live-title">
+            {{ livelist.roomName }}
+          </div>
           <div class="live-info">
-            <span class="dy-name">{{livelist.nickname}}</span>
-            <span class="popularity">{{livelist.online | fixed}}</span>
+            <span class="dy-name">
+              {{ livelist.nickname }}
+            </span>
+            <span class="popularity">
+              {{ livelist.hn }}
+            </span>
           </div>
         </router-link>
       </div>
@@ -21,7 +29,8 @@
 </template>
 
 <script>
-import VSwiper from '~/v-swiper'
+import VSwiper from '@/components/v-swiper'
+import { home } from '@/api/mobile'
 export default {
   components: {
     VSwiper
@@ -36,8 +45,10 @@ export default {
   },
   methods: {
     fetchData() {
-      this.$axios.get('/api/live').then(response => {
-        this.livelists = response.data.data
+      home().then(response => {
+        console.log(response.data[0].list)
+        this.livelists = response.data[0].list
+        // this.livelists = response.data.data
       })
     }
   }

@@ -1,18 +1,20 @@
 <template>
   <div class="main">
-    <v-navbar @open="openSidebar"></v-navbar>
+    <v-navbar @open="openSidebar" />
     <div class="view">
-      <router-view></router-view>
+      <router-view />
     </div>
-    <v-sidebar :categories="categories"
+    <v-sidebar
+      :categories="categories"
       :nav-status="LeftNavStatus"
-      @close="closeSidebar"></v-sidebar>
+      @close="closeSidebar" />
   </div>
 </template>
 
 <script>
-import VSidebar from '~/v-sidebar'
-import VNavbar from '~/v-navbar'
+import VSidebar from '@/components/v-sidebar'
+import VNavbar from '@/components/v-navbar'
+import { category } from '@/api/mobile'
 export default {
   name: 'App',
   components: {
@@ -30,9 +32,9 @@ export default {
   },
   methods: {
     fetchData() {
-      this.$axios.get('/category').then(response => {
+      category({ type: '' }).then(response => {
+        console.log(response.data)
         this.categories = response.data.cate1Info
-        // console.log(response.data.cate1Info)
       })
     },
     openSidebar() {

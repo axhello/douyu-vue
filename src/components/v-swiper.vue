@@ -1,9 +1,9 @@
 <template>
-  <swiper class="my-swipe" :options="swiperOption" ref="mySwiper">
+  <swiper ref="mySwiper" class="my-swipe" :options="swiperOption">
     <swiper-slide v-for="(billboard, index) in billboards" :key="index">
       <img class="live-img" :src="billboard.imageUrl">
     </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
+    <div slot="pagination" class="swiper-pagination"></div>
   </swiper>
 </template>
 

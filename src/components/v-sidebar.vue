@@ -3,22 +3,26 @@
     <div class="sidebar-container" :class="{'show-sidebar':navStatus}">
       <nav>
         <ul class="sidebar-list">
-          <li class="sidenav"
+          <li
             v-for="category in categories"
-            @click="hideSidebar"
-            :key="category.shortName">
-            <router-link :to="{ name: 'category', params: { type: category.shortName }}">
-              <span class="title">{{category.cate1Name}}</span>
-              <span class="right">
-                <svg-icon icon-class="right"></svg-icon>
+            :key="category.shortName"
+            class="sidenav"
+            @click="hideSidebar">
+            <a @click="cate(category)">
+              <span class="title">
+                {{ category.cate1Name }}
               </span>
-            </router-link>
+              <span class="right">
+                <svg-icon icon-class="right" />
+              </span>
+            </a>
           </li>
         </ul>
       </nav>
     </div>
-    <div class="sidebar-overlay"
+    <div
       v-show="navStatus"
+      class="sidebar-overlay"
       @click="hideSidebar"></div>
   </aside>
 </template>
@@ -34,9 +38,18 @@ export default {
       default: () => []
     }
   },
+  data() {
+    return {
+      cateName: ''
+    }
+  },
   methods: {
     hideSidebar() {
       this.$emit('close')
+    },
+    cate(category) {
+      this.$router.push({ name: 'category', params: { id: category.cate1Id }})
+      this.$cookie.set('cateName', category.cate1Name)
     }
   }
 }

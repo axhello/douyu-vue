@@ -1,11 +1,12 @@
 <template>
-  <iframe class="dy-inframe"
+  <iframe
+    class="dy-inframe"
     frameborder="0"
     :src="roomId"></iframe>
 </template>
 <script>
 export default {
-  name: 'roomDetail',
+  name: 'RoomDetail',
   computed: {
     roomId() {
       return '//m.douyu.com/' + this.$route.params.id

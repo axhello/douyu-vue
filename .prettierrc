@@ -1,0 +1,7 @@
+{
+  "printWidth": 200,
+  "semi": false,
+  "singleQuote": true,
+  "wrapAttributes": true,
+  "sortAttributes": true
+}

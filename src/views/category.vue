@@ -1,39 +1,43 @@
 <template>
   <div class="n-list clearfix">
-    <a v-for="(catelist, index) in catelists"
+    <a
+      v-for="(catelist, index) in catelists"
       :key="index"
       class="n-list-item"
       @click="rooms(catelist)">
       <img class="live-feature" :src="catelist.icon">
-      <p class="title">{{ catelist.cate2Name }}</p>
+      <p class="title">
+        {{ catelist.cate2Name }}
+      </p>
     </a>
   </div>
 </template>
 
 <script>
+import { category } from '@/api/mobile'
 export default {
-  name: 'category',
+  name: 'Category',
   data() {
     return {
-      catelists: [],
-      cateName: ''
+      catelists: []
+    }
+  },
+  watch: {
+    '$route.params.id'() {
+      this.fetchData()
     }
   },
   created() {
     this.fetchData()
   },
-  watch: {
-    '$route.params.type'() {
-      this.fetchData()
-    }
-  },
   methods: {
     fetchData() {
-      const url = `/category?type=${this.$route.params.type}`
-      this.$axios.get(url).then(response => {
-        this.cateName = response.data.cate1Info.cate1Name
-        this.catelists = response.data.cate2Info
-        this.$cookie.set('cateName', this.cateName)
+      category({ type: '' }).then(response => {
+        console.log(response.data)
+        const cate1Id = this.$route.params.id
+        const cate2Info = response.data.cate2Info
+        const result = cate2Info.filter(cate2 => cate2.cate1Id === cate1Id)
+        this.catelists = result
       })
     },
     rooms(catelist) {

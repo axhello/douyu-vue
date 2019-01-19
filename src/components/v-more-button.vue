@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'moreButton'
+  name: 'MoreButton'
 }
 </script>
 

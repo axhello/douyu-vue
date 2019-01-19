@@ -1,13 +1,15 @@
 <template>
   <nav id="toolbar">
     <div class="toolbar-icon" @click="showNav">
-      <svg-icon icon-class="menu"></svg-icon>
+      <svg-icon icon-class="menu" />
     </div>
     <div class="toolbar-title" @click="showNav">
       <span>直播分类</span>
     </div>
     <div class="toolbar-left">
-      <router-link :to="{name: 'index'}" class="user">斗鱼TV</router-link>
+      <router-link :to="{name: 'index'}" class="user">
+        斗鱼TV
+      </router-link>
     </div>
   </nav>
 </template>
